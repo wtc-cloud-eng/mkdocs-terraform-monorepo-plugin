@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='mkdocs-terraform-monorepo-plugin',
-    version='0.0.1',
+    version='0.1.0',
     description='Plugin for adding doc tree for terraform monorepos',
     long_description="""
         This introduces support for the !tf_modules_root syntax in mkdocs.yml, allowing you to import trees of README.md files for terraform modules directories that also contains a *.tf file.
@@ -14,8 +14,8 @@ setuptools.setup(
     keywords='mkdocs terraform monorepo',
     url='https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin',
     author='Richard Wittrick',
-    author_email='richard.wittrick@wundermanthompsoncommerce.com',
-    license='None',
+    author_email='richard.wittrick@wundermanthompson.com',
+    license='Apache-2.0',
     python_requires='>=3',
     install_requires=[
         'mkdocs>=1.0.4'

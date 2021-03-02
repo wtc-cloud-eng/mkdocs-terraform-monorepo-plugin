@@ -1,0 +1,20 @@
+# Development
+*.egg-info
+
+# mkdocs build
+.mkdocs
+
+# Sample site
+sample-docs/site
+
+# Fixtures
+__tests__/integration/fixtures/**/*/site
+
+# Security
+*.id_rsa
+
+# IDE
+.idea
+
+# OS
+.DS_Store

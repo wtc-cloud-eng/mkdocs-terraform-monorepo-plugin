@@ -1,0 +1,7 @@
+site_name: 'test'
+site_description: 'This is a subdomain site.'
+
+
+nav:
+  - Home: README.md
+  - TF: "!tf_modules_root project-a/project-b" # for monorepo includes, this value is relative to the root mkdocs.yml

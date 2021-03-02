@@ -4,14 +4,15 @@
 
 ✚ This plugin enables you to build multiple sets of documentation in a single Mkdocs. It is intended to auto discover documentation in a terraform modules monorepo.
 
-# Motivation
-In mkdocs, adding and combining docs into the nav from both the `docs` default directory and terraform modules directories, in a terraform monorepo, can be easily automated.  If documentation for a monorepo is auto generated using terrafrom-docs in nested submodule trees, we can build the tree automatically and add it to the mkdocs site through mkdocs configuration
+## Motivation
 
-# Install
-There is no `PyPi` module for this - it's not public (see [the limitations](#Limitations)) - so you have to install it by the git repo address
+In mkdocs, adding and combining docs into the nav from both the `docs` default directory and terraform modules directories, in a terraform monorepo, can be easily automated.  If documentation for a monorepo is auto generated using terrafrom-docs in nested submodule trees, we can build the tree automatically and add it to the mkdocs site through mkdocs configuration
+## Install
+
+It's easy to get started using [PyPI] and `pip` using Python:
 
 ```terminal
-pip install git+https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin#egg=mkdocs_terraform_monorepo_plugin
+$ pip install mkdocs-terraform-monorepo-plugin
 ```
 
 Or include it in a requirements.txt file in your project
@@ -21,7 +22,7 @@ mkdocs==1.1.2
 mkdocs-material==5.4.0
 mkdocs-material-extensions==1.0
 markdown-include==0.5.1
--e git+https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin#egg=mkdocs_terraform_monorepo_plugin
+mkdocs-terraform-monorepo-plugin==0.1.0
 ```
 
 and run
@@ -30,11 +31,9 @@ and run
 pip install -r requirements.txt
 ```
 
+## Usage
 
-
-# Usage
-
-In general, this plugin introduces the `!tf_modules_root` syntax in your Mkdocs navigation structure and then merges them into the output.  The value of `!tf_modules_root` is relative to the `docs_dir` config, like all the other definitions, and allows relative links within `the project` - `the project` directory being the same directory where the site `mkdocs.yml` file lives
+This plugin introduces the `!tf_modules_root` syntax in your Mkdocs navigation structure and then merges them into the output.  The value of `!tf_modules_root` is relative to the project config file (mkdocs.yml), not the docs directory.
 
 ```yaml
 # /mkdocs.yml
@@ -46,8 +45,8 @@ nav:
         - Testing: user-guide/testing.md
         - Changelog: user-guide/changelog.md
     - Modules:
-        - Convention: '!tf_modules_root ../convention'
-    - Examples: '!tf_modules_root ../examples'
+        - Convention: '!tf_modules_root convention'
+    - Examples: '!tf_modules_root examples'
     - About:
         - Release Notes: about/release-notes.md
         - Contributing: about/contributing.md
@@ -61,7 +60,7 @@ plugins:
 
 ```
 
-#### Example Source Filetree
+### Example Source Filetree
 
 ```terminal
 $ tree .
@@ -105,9 +104,9 @@ $ tree .
 
 ```
 
-#### Example Rendered Filetree
+### Example Rendered Filetree
 
-```
+```terminal
 ├── 404.html
 ├── about
 │   ├── code-of-conduct
@@ -181,16 +180,16 @@ $ tree .
 
 ```
 
-# Limitations
+## Limitations
 
-## Technical
+### Technical
 
 - Write tests
-- Add variable for README.md
+- Add variable for README. :(
 - make sure that a tf file is in the same dir as the readme
 - add ignore list regex
 
-## Overall
+### Overall
 
 - License doc - and include reference to [backstage](https://github.com/backstage/mkdocs-monorepo-plugin) where I copied a lot from
 - Contributing doc

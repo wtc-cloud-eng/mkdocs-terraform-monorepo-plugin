@@ -1,0 +1,64 @@
+nav:
+  - Getting Started: index.md
+  - Philosophy: philosophy.md
+  - Limitations: limitations.md
+  - Contributing: CONTRIBUTING.md
+  - Code of Conduct: CODE-OF-CONDUCT.md
+  - Changelog: CHANGELOG.md
+  - GitHub Source Code: https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin
+
+
+site_name: "example terraform modules"
+#site_url: "https://docs.cloudeng.wtcomm.io/terraform-modules-example"
+dev_addr: "0.0.0.0:8000"
+repo_url: https://github.com/wtc-cloud-eng/terraform-modules-example
+repo_name: GitHub
+site_description: Terraform Modules for EXAMPLE
+site_dir: ".mkdocs"
+edit_uri: ""
+docs_dir: "docs"
+
+
+# Copyright
+copyright: Copyright © 2021. Wunderman Thompson Commerce - a WPP Company. All rights reserved
+
+# Configuration
+# prebuild_index: True
+theme:
+  name: material
+  features:
+    - tabs
+  language: en
+  palette:
+    primary: deep purple
+    accent: teal
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: img/logo.png
+  favicon: img/favicon.png
+
+# Extensions
+markdown_extensions:
+  - markdown_include.include:
+      base_path: docs
+  - smarty
+  - sane_lists
+  - attr_list
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+plugins:
+  # - monorepo
+  - terraform-monorepo
+  #     ignore_folders:
+  #       - ".*/tests?/.*"
+  - search
+  # - simple
+  #     include_folders:
+  #       - "examples"
+      # merge_docs_dir: False
+      # ignore_hidden: True
