@@ -6,6 +6,10 @@ __pycache__
 # mkdocs build
 .mkdocs
 
+# pypi and twine tests
+/build
+/dist
+
 # Sample site
 sample-docs/site
 
