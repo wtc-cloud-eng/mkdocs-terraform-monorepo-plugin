@@ -5,7 +5,7 @@ setuptools.setup(
     name='mkdocs-terraform-monorepo-plugin',
     version='0.1.0',
     description='Plugin for adding doc tree for terraform monorepos.',
-    long_description_content_type='text/text',
+    long_description_content_type='text/plain',
     long_description="""
         This introduces support for the !tf_modules_root syntax in mkdocs.yml, allowing you to import trees of README.md files for terraform modules directories that also contains a \*.tf file.
         It enables large or complex repositories to have their own tree of modules folders, whilst generating only a single Mkdocs site.
