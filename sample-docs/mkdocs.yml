@@ -1,0 +1,11 @@
+site_name: terraform monorepo
+
+nav:
+  - Intro: 'index.md'
+  - Modules:
+    - AWS: '!tf_modules_root ./aws'
+    - Azure: '!tf_modules_root ./azurerm'
+    - GCP: '!tf_modules_root ./gcp'
+
+plugins:
+  - terraform-monorepo

@@ -1,0 +1,14 @@
+site_name: "Example"
+site_description: "Description Here"
+
+docs_dir: ./docs
+
+plugins:
+  - terraform-monorepo
+
+nav:
+  - Home: "index.md"
+  - Subnav:
+    - index.md
+    - index.md
+  - Hello: "!tf_modules_root project-a"

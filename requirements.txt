@@ -1,5 +1,4 @@
 flake8>=3.7.8
 mkdocs>=1.1.1
 mkdocs-material>=5.1.0
-mkdocs-git-authors-plugin==0.3.2
-mkdocs-git-revision-date-localized-plugin==0.5.0
+mkdocs-monorepo-plugin==0.4.5  # breaking change to pre_page was added to 0.4.6
