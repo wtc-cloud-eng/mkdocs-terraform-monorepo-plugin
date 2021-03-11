@@ -3,8 +3,7 @@
 [![](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/workflows/Build%2C%20Test%20%26%20Deploy/badge.svg)](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/actions)
 [![PyPI](https://img.shields.io/pypi/v/mkdocs-terraform-monorepo-plugin)](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/)
 ![](https://img.shields.io/badge/lifecycle-beta-509bf5.svg)
-[![PyPI - License](https://img.shields.io/pypi/l/mkdocs-terraform-monorepo-plugin)](LICENSE)
-
+[![PyPI - License](https://img.shields.io/pypi/l/mkdocs-terraform-monorepo-plugin)](LICENSE.md)
 
 > **Note: This plugin is in beta.** Whilst it is not expected to significantly change in functionality, it may not yet be fully compatible with other Mkdocs configuration and thus may break with some advanced configurations. Once these have been resolved and all bugs have been ironed out, we will move this to a stable release.
 

@@ -43,7 +43,7 @@ jobs:
         run: ./__tests__/setup-pip.sh
       - name: Build Docs
         run: |
-          mkdocs build --theme material
+          mkdocs build
       - name: Install Plugin
         run: pip install -e .
       - name: Build Example Docs
