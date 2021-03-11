@@ -10,9 +10,6 @@ function docker_run_integration_tests() {
 docker build -t mkdocs-terraform-monorepo-test-runner:$1 --quiet -f- . <<EOF
   FROM python:$1
   COPY ./requirements.txt /workspace/requirements.txt
-  RUN mkdir -p /me/mkdocs-monorepo-plugin
-  COPY ./mkdocs_monorepo_plugin /me/mkdocs_monorepo_plugin
-  RUN ls -R /me
   RUN apt-get -y update && apt-get -yyy install bats && apt-get -yyy install git
   RUN pip install -r /workspace/requirements.txt
   ENTRYPOINT ["bats"]
@@ -27,7 +24,6 @@ if [[ ! -z "$PYTHON_37_ONLY" ]]; then
   docker_run_integration_tests "3.7-slim"
 else
   docker_run_integration_tests "3-slim"
-  docker_run_integration_tests "3.5-slim"
   docker_run_integration_tests "3.6-slim"
   docker_run_integration_tests "3.7-slim"
 fi

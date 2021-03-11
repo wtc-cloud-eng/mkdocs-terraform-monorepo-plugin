@@ -97,7 +97,7 @@ teardown() {
 @test "fails if !tf_modules_root path does not exist" {
  cd ${fixturesDir}/error-include-path-not-found
  assertFailedMkdocs build
- [[ "$output" == *"[mkdocs-terraform-monorepo] The path /workspace/__tests__/integration/fixtures/project-a is not valid. Please update your 'nav' with a valid path (relative to the mkdocs.yml file)"* ]]
+ [[ "$output" == *"[mkdocs-terraform-monorepo] The path ${fixturesDir}/project-a is not valid. Please update your 'nav' with a valid path (relative to the mkdocs.yml file)"* ]]
 }
 
 @test "fails if monorepo plugin before terraform-monorepo plugin config" {

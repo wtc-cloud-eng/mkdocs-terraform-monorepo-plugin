@@ -116,7 +116,7 @@ $ tree .
 
 ## Supported Versions
 
-- Python 3 &mdash; 3.5, 3.6, 3.7
+- Python 3 &mdash; 3.6, 3.7
 - [Mkdocs] 1.1.1 and above.
 - [monorepo plugin] 0.4.5.
 
