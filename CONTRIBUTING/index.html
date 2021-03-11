@@ -1,0 +1,664 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Docs for the mkdocs terraform monorepo plugin - a plugin to include terraform docs in a the navigation
+">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>Contributing - mkdocs-terraform-monorepo-plugin (&beta;)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#7e57c2">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contributing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="mkdocs-terraform-monorepo-plugin (&beta;)" class="md-header-nav__button md-logo" aria-label="mkdocs-terraform-monorepo-plugin (&beta;)">
+      
+  <img src="../assets/img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            mkdocs-terraform-monorepo-plugin (&beta;)
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Contributing
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/wtc-cloud-eng/terraform-modules-example/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wtc-cloud-eng/mkdocs-terraform-monorepo-plugin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." class="md-tabs__link md-tabs__link--active">
+        Getting Started
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="mkdocs-terraform-monorepo-plugin (&beta;)" class="md-nav__button md-logo" aria-label="mkdocs-terraform-monorepo-plugin (&beta;)">
+      
+  <img src="../assets/img/logo.png" alt="logo">
+
+    </a>
+    mkdocs-terraform-monorepo-plugin (&beta;)
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/wtc-cloud-eng/terraform-modules-example/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wtc-cloud-eng/mkdocs-terraform-monorepo-plugin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../philosophy/" title="Philosophy" class="md-nav__link">
+      Philosophy
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../limitations/" title="Limitations" class="md-nav__link">
+      Limitations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Contributing
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Contributing" class="md-nav__link md-nav__link--active">
+      Contributing
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-from-source" class="md-nav__link">
+    Build from source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    How does it work?
+  </a>
+  
+    <nav class="md-nav" aria-label="How does it work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolving-the-navigation" class="md-nav__link">
+    Resolving the navigation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CODE-OF-CONDUCT/" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CHANGELOG/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin" title="GitHub Source Code" class="md-nav__link">
+      GitHub Source Code
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-from-source" class="md-nav__link">
+    Build from source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    How does it work?
+  </a>
+  
+    <nav class="md-nav" aria-label="How does it work?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolving-the-navigation" class="md-nav__link">
+    Resolving the navigation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wtc-cloud-eng/terraform-modules-example/edit/master/docs/CONTRIBUTING.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
+<p>We welcome contributions! We believe that by fostering a healthy, inclusive, and active open source community that we will be able to build better software for all. A large part of that is by having an enforced <a href="../CODE-OF-CONDUCT/">code of conduct</a> as well easy to use contributing guidelines.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python 3+ or above (with Pip)</li>
+<li><a href="https://www.mkdocs.org">Mkdocs</a> 1.0.4 or above</li>
+<li>Docker</li>
+<li>Git</li>
+</ul>
+<h2 id="build-from-source">Build from source<a class="headerlink" href="#build-from-source" title="Permanent link">&para;</a></h2>
+<p>This part should be easy. If it&rsquo;s not, let us know! The first thing you&rsquo;ll want to do is import the repository and open up the directory.</p>
+<div class="codehilite"><pre><span></span><code>$ git clone git@github.com:wtc-cloud-eng/mkdocs-terraform-monorepo-plugin.git
+</code></pre></div>
+
+<p>Then using the <code>--editable</code> flag, you can install the package locally. This points the actual plugin to the folder which allows you to make changes dynamically without having to re-install it every time you want to test a change.</p>
+<div class="codehilite"><pre><span></span><code>$ cd mkdocs-terraform-monorepo-plugin/
+$ pip install --editable .
+$ pip install -r requirements.txt
+</code></pre></div>
+
+<p>Great, now you have the <code>terraform-monorepo</code> plugin available in <code>Mkdocs</code>. This allows you to do the following in an <code>mkdocs.yml</code> without errors:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">site_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Example Site</span>
+
+<span class="nt">plugins</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">terraform-monorepo</span>
+</code></pre></div>
+
+<p>Of course, you&rsquo;ll need a folder to test it in. There is a conveniently folder named <code>sample-docs/</code> folder that you can use to test your changes, although you can run <code>mkdocs serve</code> in any project you want as long as the <code>mkdocs.yml</code> has <code>terraform-monorepo</code> mentioned in the <code>plugins</code> key.</p>
+<div class="codehilite"><pre><span></span><code>$ cd sample-docs/
+$ mkdocs serve
+</code></pre></div>
+
+<p>Optionally, you can run it using <a href="https://squidfunk.github.io/mkdocs-material/">Mkdocs Material</a> which is what is powering the docs you&rsquo;re currently looking at. It makes Mkdocs really nice to work with. You can then simply pass through <code>--theme</code> to your <code>mkdocs serve</code> command like usual.</p>
+<div class="codehilite"><pre><span></span><code>$ pip install mkdocs-material
+$ mkdocs serve --theme material
+</code></pre></div>
+
+<p>That&rsquo;s pretty much it. Experiment, play about, make the changes you need.</p>
+<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<p>Oh yes, that&rsquo;s worth mentioning! It works quite easily actually. There are two parts to the process: resolving the navigation, and merging the documentation folders.</p>
+<h3 id="resolving-the-navigation">Resolving the navigation<a class="headerlink" href="#resolving-the-navigation" title="Permanent link">&para;</a></h3>
+<p>This is responsible for making sure whenever you use the <code>!tf_modules_root</code> statement in <code>nav</code> inside our <code>mkdocs.yml</code> that we walk the folder looking for README.md files, and then appropriately import that into the <code>nav</code>. So to give you an example:</p>
+<p>```yaml tab=&rdquo;Source mkdocs.yml files&rdquo;</p>
+<h1 id="mkdocsyml">mkdocs.yml<a class="headerlink" href="#mkdocsyml" title="Permanent link">&para;</a></h1>
+<p>site_name: Example Site</p>
+<p>plugins:
+  - terraform-monorepo</p>
+<p>nav:
+  - Getting Started: README.md
+  - Modules:
+    - Convention: &lsquo;!tf_modules_root convention&rsquo;
+  - Contributing: contributing.md</p>
+<div class="codehilite"><pre><span></span><code>Any mid-level README found in the tree is treated as a general `About` document for the module.  For example, the directory tree might look like this for the above mkdocs.yaml:
+
+```bash
+```terminal
+$ tree .
+├── convention
+│   ├── naming
+│   │   ├── compute
+│   │   │   ├── faas
+│   │   │   │   ├── main.tf
+│   │   │   │   └── README.md
+│   │   │   └── machine
+│   │   │       ├── main.tf
+│   │   │       └── README.md
+│   │   ├── dns
+│   │   │   ├── main.tf
+│   │   │   └── README.md
+│   │   ├── storage
+│   │   │   └── bucket
+│   │   │       ├── main.tf
+│   │   │       └── README.md
+│   │   └── README.md
+│   └── tags
+       └── README.md
+</code></pre></div>
+
+<p>The navigation would be:</p>
+<div class="codehilite"><pre><span></span><code>Convention -&gt; naming -&gt; About # and the tree path is convention/naming/README.md
+Convention -&gt; naming -&gt; storage -&gt; bucket # and the tree path is convention/naming/storage/bucket/README.md
+</code></pre></div>
+
+<p>This is to avoid repetition in naming of a module that has a tree - e.g. preventing a nav of Convention -&gt; naming -&gt; Naming, while allowing the <code>naming</code> node of the tree to have navigable children.</p>
+<p>The Python code related to this component lives in <code>mkdocs_terraform_monorepo_plugin/parser.py</code>.</p>
+<h3 id="merging-the-docs-folders">Merging the docs folders<a class="headerlink" href="#merging-the-docs-folders" title="Permanent link">&para;</a></h3>
+<p>This takes the work the resolver does and applies it to reality. It is responsible for creating a temporary folder using Python&rsquo;s <code>TemporaryFolder()</code> and moves the <code>docs/</code> folder.</p>
+<p>The Python code related to this component lives in <code>mkdocs_terraform_monorepo_plugin/merger.py</code>.</p>
+<h1 id="making-a-change">Making a change<a class="headerlink" href="#making-a-change" title="Permanent link">&para;</a></h1>
+<p>That&rsquo;s excellent! We&rsquo;re very happy that you&rsquo;d like to contribute. We are very welcoming to any contributions. It is important to note a few things before you do so:</p>
+<ul>
+<li>
+<p><strong>Consider opening an issue first.</strong> It&rsquo;s easy to fall into the trap to create a bug for something that isn&rsquo;t agreed upon. GitHub issues is a great way to act as a validator for your contribution ideas. We try our best to engage in these as much as possible to make this as painless as possible, as it&rsquo;s easier to write the code than discuss it. It also significantly reduces the chances of us rejecting it.</p>
+</li>
+<li>
+<p><strong>Write tests.</strong> Of course, shipping stuff is pretty cool. Especially when it&rsquo;s a really nice improvement. In this case, there will have many others depending on our source code. It is a small ask for ask you to test your code in a basic capacity, so that it isn&rsquo;t prone to being broken or removed in the future accidentally. Adding complete test coverage is something we will suggest on a case-by-case basis, depending on the type of change it is.</p>
+</li>
+<li>
+<p><strong>Not every contribution will be approved.</strong> Of course, given how much volunteered time you and others spend, it is a great way of saying thank you for to accept and merge every pull request - but in reality, doing so is more harmful than valuable. We want to leverage open source to make software better for everyone rather than for a few. This means considering the long-term value of changes, as well as any impact it may have - will it break existing integrations? will it slow performance? is this a convention others will understand? As a general rule of thumb, we highly encourage you open a GitHub issue first to discuss your ideas. It will help everyone in the long run for just a little bit more time.</p>
+</li>
+</ul>
+<p>That out of the way, here&rsquo;s what you need to do:</p>
+<div class="codehilite"><pre><span></span><code>$ git checkout -b username/branch-name
+# ... make your changes
+$ code ./setup.py # make sure you bump up the version on line 6
+$ git add --patch # validate your changes
+$ git commit -m &#39;changed X and Y&#39; # ensure you write a meaningful commit message
+$ git push -u origin HEAD
+</code></pre></div>
+
+<p>It might say you don&rsquo;t have permissions to push to our repository. That&rsquo;s alright, using <a href="https://hub.github.com/hub-fork.1.html">hub fork</a> you can fork the repository on GitHub and then replace the <code>origin</code> remote with your own directly from your Terminal:</p>
+<div class="codehilite"><pre><span></span><code>$ hub fork --remote-name origin
+$ git remote rm origin
+$ git remote add origin git@github.com:[USERNAME]/mkdocs-terraform-monorepo-plugin.git
+$ git push -u origin HEAD
+$ hub pull-request -b wtc-cloud-eng:main --message &#39;Pull request title&#39; --browse # add --draft if you want to push it as a draft PR
+</code></pre></div>
+
+<p>This will create the pull request in our repository. You can of course do it through GitHub.com or their desktop clients too :)</p>
+<h1 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h1>
+<p>The command below will use Docker to run our test suites in numerous Python versions. It may take some time on first run, but should be very fast afterwards. When you&rsquo;re done, feel free to run <code>docker prune</code> to clear them from your local cache. We use the <code>slim</code> versions of the public <code>python</code> images from <a href="https://hub.docker.com">Docker Hub</a>.</p>
+<div class="codehilite"><pre><span></span><code>$ ./__tests__/test-local.sh
+</code></pre></div>
+
+<p>For faster tests, you can opt to run in Python 3.7 rather than all supported Python versions:</p>
+<div class="codehilite"><pre><span></span><code>$ PYTHON_37_ONLY=1 ./__tests__/test-local.sh
+</code></pre></div>
+
+<p><a href="https://github.com/features/actions">GitHub Actions</a> will always execute tests a little faster (due to parallelization) when you push your branch. Due to this, you can choose to opt of running them locally if you wish!</p>
+<h1 id="submitting-a-pr">Submitting a PR<a class="headerlink" href="#submitting-a-pr" title="Permanent link">&para;</a></h1>
+<p>Feel free to open up a PR and share why you think this change is valuable (unless it&rsquo;s something obvious, like a typo or confirmed bug). Assuming it is a change that is wanted, a maintainer will take a look to see if there&rsquo;s any changes needed.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../limitations/" title="Limitations" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Limitations
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../CODE-OF-CONDUCT/" title="Code of Conduct" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Code of Conduct
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021. Wunderman Thompson Commerce - a WPP Company. All rights reserved
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
