@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='mkdocs-terraform-monorepo-plugin',
-    version='0.1.0',
+    version='0.1.1',
     description='Plugin for adding doc tree for terraform monorepos.',
     long_description_content_type='text/plain',
     long_description="""

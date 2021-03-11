@@ -9,7 +9,7 @@
 
 ✚ This plugin enables you to build multiple sets of documentation in a single Mkdocs. It is designed to address writing documentation for Terraform monorepos, particularly when used with [terraform-docs].
 
-🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://spotify.github.io/mkdocs-monorepo-plugin/monorepo-example/) | 📕 [Docs](https://wtc-cloude-eng.github.io/mkdocs-terraform-monorepo-plugin/)
+🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://wtc-cloud-eng.github.io/mkdocs-monorepo-plugin/terraform-monorepo-example/) | 📕 [Repo](https://wtc-cloud-enggithub.com/mkdocs-terraform-monorepo-plugin/)
 
 > **Note:  This project was adapted from the Spotify [backstage monorepo] plugin.** It follows the same structure, test patterns, principles and release patterns.
 
@@ -17,7 +17,7 @@
 
 - **Support for multiple module root folders in Mkdocs.** Having a single `docs/` folder in a terraform codebase is hard to maintain. Who owns which documentation? What code is it associated with? Bringing docs closer to the associated code enables you to update them better, as well as leverage folder-based features such as [GitHub Codeowners] and documentation tooling such as [terraform-docs]
 
-- **Limited support for [backstage monorepo] plugin navigations.** In Spotify, large repositories typically are split up by multiple owners. These are split by folders. By introducing multiple `mkdocs.yml` files along with multiple `docs/` folder, each team can take ownership of their own navigation. This plugin then intelligently merges of the documentation together into a single repository.
+- **Limited support for [backstage monorepo] plugin navigations.** With the monorepo plugin, you can nest mkdocs.yml files deeper in the tree and have separate navigations.  As the monrepo and terrafrom monorepo plugins both manipulate the same nav and docs structures, they can work together, provided monorepo is in the plugins list before terraform-monorepo.
 
 - **The same great Mkdocs developer experience.** It is possible to run `mkdocs serve` in the root to merge all of your documentation together, or in a subfolder to build specific documentation. Autoreload still works as usual. No more using [symlinks](https://devdojo.com/tutorials/what-is-a-symlink)!
 
