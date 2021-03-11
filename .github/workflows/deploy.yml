@@ -3,7 +3,8 @@ name: Build, Test & Deploy
 on:
   push:
     branches:
-      - master
+      - main
+
     paths:
       - ".github/workflows/deploy.yml"
       - "setup.py"
