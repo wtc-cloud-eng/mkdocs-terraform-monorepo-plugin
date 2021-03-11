@@ -1,23 +1,23 @@
-# backstage/mkdocs-monorepo-plugin
+# wtc-cloud-eng/mkdocs-terraform-monorepo-plugin
 
-[![](https://github.com/backstage/mkdocs-monorepo-plugin/workflows/Build%2C%20Test%20%26%20Deploy/badge.svg)](https://github.com/backstage/mkdocs-monorepo-plugin/actions)
-[![PyPI](https://img.shields.io/pypi/v/mkdocs-monorepo-plugin)](https://pypi.org/project/mkdocs-monorepo-plugin/)
+[![](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/workflows/Build%2C%20Test%20%26%20Deploy/badge.svg)](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/actions)
+[![PyPI](https://img.shields.io/pypi/v/mkdocs-terraform-monorepo-plugin)](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/)
 ![](https://img.shields.io/badge/lifecycle-beta-509bf5.svg)
-[![PyPI - License](https://img.shields.io/pypi/l/mkdocs-monorepo-plugin)](LICENSE)
+[![PyPI - License](https://img.shields.io/pypi/l/mkdocs-terraform-monorepo-plugin)](LICENSE)
 
 > **Note: This plugin is in beta.** Whilst it is not expected to significantly change in functionality, it may not yet be fully compatible with other Mkdocs configuration and thus may break with some advanced configurations. Once these have been resolved and all bugs have been ironed out, we will move this to a stable release.
 
-✚ This plugin enables you to build multiple sets of documentation in a single Mkdocs. It is designed to address writing documentation in Spotify's largest and most business-critical codebases (typically monoliths or monorepos).
+✚ This plugin enables you to build multiple sets of documentation in a single Mkdocs. It is designed to address writing documentation for Terraform monorepos, particularly when used with [terraform-docs].
 
-✏️ [Blog Post](https://labs.spotify.com/2019/10/01/solving-documentation-for-monoliths-and-monorepos/) | 🐍 [Python Package](https://pypi.org/project/mkdocs-monorepo-plugin/) | ✚ [Demo](https://spotify.github.io/mkdocs-monorepo-plugin/monorepo-example/) | 📕 [Docs](https://spotify.github.io/mkdocs-monorepo-plugin/)
+🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://spotify.github.io/mkdocs-monorepo-plugin/monorepo-example/) | 📕 [Docs](https://wtc-cloude-eng.github.io/mkdocs-terraform-monorepo-plugin/)
+
+> **Note:  This project was adapted from the Spotify [backstage monorepo] plugin.** It follows the same structure, test patterns, principles and release patterns.
 
 ## Features
 
-- **Support for multiple `docs/` folders in Mkdocs.** Having a single `docs/` folder in a large codebase is hard to maintain. Who owns which documentation? What code is it associated with? Bringing docs closer to the associated code enables you to update them better, as well as leverage folder-based features such as [GitHub Codeowners].
+- **Support for multiple module root folders in Mkdocs.** Having a single `docs/` folder in a terraform codebase is hard to maintain. Who owns which documentation? What code is it associated with? Bringing docs closer to the associated code enables you to update them better, as well as leverage folder-based features such as [GitHub Codeowners] and documentation tooling such as [terraform-docs]
 
-- **Support for multiple navigations.** In Spotify, large repositories typically are split up by multiple owners. These are split by folders. By introducing multiple `mkdocs.yml` files along with multiple `docs/` folder, each team can take ownership of their own navigation. This plugin then intelligently merges of the documentation together into a single repository.
-
-- **Support across multiple repositories.** Using [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) it is possible to merge documentation across multiple repositories into a single codebase dynamically.
+- **Limited support for [backstage monorepo] plugin navigations.** In Spotify, large repositories typically are split up by multiple owners. These are split by folders. By introducing multiple `mkdocs.yml` files along with multiple `docs/` folder, each team can take ownership of their own navigation. This plugin then intelligently merges of the documentation together into a single repository.
 
 - **The same great Mkdocs developer experience.** It is possible to run `mkdocs serve` in the root to merge all of your documentation together, or in a subfolder to build specific documentation. Autoreload still works as usual. No more using [symlinks](https://devdojo.com/tutorials/what-is-a-symlink)!
 
@@ -26,19 +26,19 @@
 It's easy to get started using [PyPI] and `pip` using Python:
 
 ```terminal
-$ pip install mkdocs-monorepo-plugin
+$ pip install mkdocs-terraform-monorepo-plugin
 ```
 
 ## Usage
 
-Take a look at [our sample project](https://github.com/backstage/mkdocs-monorepo-plugin/tree/master/sample-docs) or do the following:
+Take a look at [our sample project](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/tree/master/sample-docs) or do the following:
 
-- In the root, add the `monorepo` to your `plugins` key in `mkdocs.yml`
+- In the root, add `terraform-monorepo` to your `plugins` key in `mkdocs.yml`
 - Create a subfolder, with a `mkdocs.yml` with a `site_name` and `nav`, as well as a `docs/` folder with an `index.md`
-- Back in in the root `mkdocs.yml`, use the `!include` syntax in your `nav` to link to to a subfolder `mkdocs.yml`
+- Back in in the root `mkdocs.yml`, use the `!tf_modules_root` syntax in your `nav` to link to to a folder containing terraform markdown documentation.
 
 !!! info "Example root /mkdocs.yml"
-            
+
             site_name: Cats API
 
             # You can declare "!include" statements here. This enables you
@@ -71,12 +71,12 @@ Take a look at [our sample project](https://github.com/backstage/mkdocs-monorepo
             nav:
               - Reference: "reference.md"
               - Changelog: "changelog.md"
-            
+
             nav:
               - code-samples.md
 
 !!! info "Example submodule /v2/mkdocs.yml"
-            
+
             # It works the same as above, but with relative to the site_name we use here:
             #
             #   migrating.md -> docs/versions/v2/migrating.md -> http://localhost:8000/versions/v2/migrating/
@@ -117,11 +117,14 @@ $ tree .
 ## Supported Versions
 
 - Python 3 &mdash; 3.5, 3.6, 3.7
-- [Mkdocs] 1.0.4 and above.
+- [Mkdocs] 1.1.1 and above.
+- [monorepo plugin] 0.4.5.
 
 ## License
 
-Released under the Apache 2.0 License. See [here](https://github.com/backstage/mkdocs-monorepo-plugin/blob/master/LICENSE) for more details.
+Released under the Apache 2.0 License. See [here](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/blob/master/LICENSE) for more details.
+
+Also see [backstage monorepo](https://github.com/backstage/mkdocs-monorepo-plugin/blob/master/LICENSE) for more details.
 
 ## Contributing
 
@@ -137,4 +140,6 @@ Check out our [CONTRIBUTING](./CONTRIBUTING.md) for more details.
 [mkdocs-plugin-template]: https://github.com/byrnereese/mkdocs-plugin-template
 [pypi]: https://pypi.org
 [mkdocs]: https://www.mkdocs.org
-[github codeowners]: https://help.github.com/en/articles/about-code-owners
+[backstage monorepo]: https://backstage.github.io/mkdocs-monorepo-plugin/
+[github codeowners]: https://help.github.com/en/articles/about-code-
+[terraform-docs]: https://terraform-docs.io/

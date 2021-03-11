@@ -6,7 +6,10 @@
 
 ## Motivation
 
-In mkdocs, adding and combining docs into the nav from both the `docs` default directory and terraform modules directories, in a terraform monorepo, can be easily automated.  If documentation for a monorepo is auto generated using terrafrom-docs in nested submodule trees, we can build the tree automatically and add it to the mkdocs site through mkdocs configuration
+In mkdocs, adding and combining docs into the nav from both the `docs` default directory and terraform modules directories, in a terraform monorepo, can be easily automated.  If documentation for a monorepo is auto generated using terrafrom-docs in nested submodule trees, we can build the tree automatically and add it to the mkdocs site through mkdocs configuration.
+
+This module was totally inspired by the backstage [mkdocs-monorepo-plugin](https://github.com/backstage/mkdocs-monorepo-plugin) and shares much of the same structure.
+
 ## Install
 
 It's easy to get started using [PyPI] and `pip` using Python:
@@ -179,18 +182,3 @@ $ tree .
         └── index.html
 
 ```
-
-## Limitations
-
-### Technical
-
-- Write tests
-- Add variable for README. :(
-- make sure that a tf file is in the same dir as the readme
-- add ignore list regex
-
-### Overall
-
-- License doc - and include reference to [backstage](https://github.com/backstage/mkdocs-monorepo-plugin) where I copied a lot from
-- Contributing doc
-- use mkdocs to generate docs!

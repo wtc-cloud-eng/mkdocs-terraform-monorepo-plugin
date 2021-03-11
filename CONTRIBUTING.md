@@ -56,53 +56,63 @@ Oh yes, that's worth mentioning! It works quite easily actually. There are two p
 
 ### Resolving the navigation
 
-This is responsible for making sure whenever you use the `!include` statement in `nav` inside our `mkdocs.yml` that we appropriately open up the included file, get the `nav`, and then appropriately import that into the root `nav`. So to give you an example:
+This is responsible for making sure whenever you use the `!tf_modules_root` statement in `nav` inside our `mkdocs.yml` that we walk the folder looking for README.md files, and then appropriately import that into the `nav`. So to give you an example:
 
 ```yaml tab="Source mkdocs.yml files"
 # mkdocs.yml
 site_name: Example Site
 
 plugins:
-  - monorepo
+  - terraform-monorepo
 
 nav:
   - Getting Started: README.md
-  - Design: '!include teams/design/mkdocs.yml'
-  - Contributing: contributing.md
-
-# teams/design/mkdocs.yml
-site_name: design-folder-alias
-
-nav:
-  - Menus: components/menus.md
-  - Tabs: components/tabs.md
-  - Playback Buttons: components/playback-buttons.md
-```
-
-```yaml tab="Output mkdocs.yml"
-site_name: Example Site
-
-plugins:
-  - monorepo
-
-nav:
-  - Getting Started: README.md
-  - Design:
-      - Menus: design-folder-alias/components/menus.md
-      - Tabs: design-folder-alias/components/tabs.md
-      - Playback Buttons: design-folder-alias/components/playback-buttons.md
+  - Modules:
+    - Convention: '!tf_modules_root convention'
   - Contributing: contributing.md
 ```
 
-Note that we've added a `design-folder-alias/` to the links under Design. This is because when merging the docs in the next step, it is not possible to meaningfully merge them all into a single `docs/` folder due to the likelihood of conflicts. Due to this, we made a design decision to repurpose the `site_name` to act as an alias when it is included in a monorepo context and uses this when it tries to create a "single" set of docs by using the alias as a folder.
+Any mid-level README found in the tree is treated as a general `About` document for the module.  For example, the directory tree might look like this for the above mkdocs.yaml:
 
-The Python code related to this component lives in `mkdocs_monorepo_plugin/parser.py`.
+```bash
+```terminal
+$ tree .
+├── convention
+│   ├── naming
+│   │   ├── compute
+│   │   │   ├── faas
+│   │   │   │   ├── main.tf
+│   │   │   │   └── README.md
+│   │   │   └── machine
+│   │   │       ├── main.tf
+│   │   │       └── README.md
+│   │   ├── dns
+│   │   │   ├── main.tf
+│   │   │   └── README.md
+│   │   ├── storage
+│   │   │   └── bucket
+│   │   │       ├── main.tf
+│   │   │       └── README.md
+│   │   └── README.md
+│   └── tags
+       └── README.md
+```
+
+The navigation would be:
+
+```text
+Convention -> naming -> About # and the tree path is convention/naming/README.md
+Convention -> naming -> storage -> bucket # and the tree path is convention/naming/storage/bucket/README.md
+```
+This is to avoid repetition in naming of a module that has a tree - e.g. preventing a nav of Convention -> naming -> Naming, while allowing the `naming` node of the tree to have navigable children.
+
+The Python code related to this component lives in `mkdocs_terraform_monorepo_plugin/parser.py`.
 
 ### Merging the docs folders
 
-This takes the work the resolver does and applies it to reality. It is responsible for creating a temporary folder using Python's `TemporaryFolder()` and moves the root `docs/` folder, as well as the `docs/` folders of all included paths from the root `nav`. As mentioned, it also takes their `site_name` values and uses that to indicate where it should be placed in our "merged" documentation folder.
+This takes the work the resolver does and applies it to reality. It is responsible for creating a temporary folder using Python's `TemporaryFolder()` and moves the `docs/` folder.
 
-The Python code related to this component lives in `mkdocs_monorepo_plugin/merger.py`.
+The Python code related to this component lives in `mkdocs_terraform_monorepo_plugin/merger.py`.
 
 # Making a change
 
@@ -132,7 +142,7 @@ $ hub fork --remote-name origin
 $ git remote rm origin
 $ git remote add origin git@github.com:[USERNAME]/mkdocs-terraform-monorepo-plugin.git
 $ git push -u origin HEAD
-$ hub pull-request -b spotify:master --message 'Pull request title' --browse # add --draft if you want to push it as a draft PR
+$ hub pull-request -b wtc-cloud-eng:main --message 'Pull request title' --browse # add --draft if you want to push it as a draft PR
 ```
 
 This will create the pull request in our repository. You can of course do it through GitHub.com or their desktop clients too :)
