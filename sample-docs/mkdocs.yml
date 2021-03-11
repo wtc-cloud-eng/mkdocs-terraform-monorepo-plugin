@@ -1,11 +1,11 @@
-site_name: Cats API
+site_name: terraform monorepo
 
 nav:
   - Intro: 'index.md'
-  - Authentication: 'authentication.md'
-  - API:
-    - v1: '!include ./v1/mkdocs.yml'
-    - v2: '!include ./v2/mkdocs.yml'
+  - Modules:
+    - AWS: '!tf_modules_root ./aws'
+    - Azure: '!tf_modules_root ./azurerm'
+    - GCP: '!tf_modules_root ./gcp'
 
 plugins:
-  - monorepo
+  - terraform-monorepo

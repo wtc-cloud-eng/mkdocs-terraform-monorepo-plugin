@@ -18,7 +18,7 @@ setuptools.setup(
     license='Apache-2.0',
     python_requires='>=3',
     install_requires=[
-        'mkdocs>=1.0.4'
+        'mkdocs>=1.1.1'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -26,7 +26,6 @@ setuptools.setup(
         'Intended Audience :: Information Technology',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3 :: Only',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7'
     ],

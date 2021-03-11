@@ -37,81 +37,46 @@ Take a look at [our sample project](https://github.com/wtc-cloud-eng/mkdocs-terr
 - Create a subfolder, with a `mkdocs.yml` with a `site_name` and `nav`, as well as a `docs/` folder with an `index.md`
 - Back in in the root `mkdocs.yml`, use the `!tf_modules_root` syntax in your `nav` to link to to a folder containing terraform markdown documentation.
 
-!!! info "Example root /mkdocs.yml"
+### Example root /mkdocs.yml"
 
-            site_name: Cats API
+```
+site_name: terraform monorepo
 
-            # You can declare "!include" statements here. This enables you
-            # to include mkdocs.yml that are located in subfolders. In this
-            # case we have two folders (v1/ and v2/) and wish to merge them
-            # into this single navigation. The 'Intro' and 'Authentication'
-            # files are located in the root docs/ folder as usual.
+nav:
+  - Intro: 'index.md'
+  - Modules:
+    - AWS: '!tf_modules_root ./aws'
+    - Azure: '!tf_modules_root ./azurerm'
+    - GCP: '!tf_modules_root ./gcp'
 
-            nav:
-              - Intro: 'index.md'
-              - Authentication: 'authentication.md'
-              - API:
-                - v1: '!include ./v1/mkdocs.yml'
-                - v2: '!include ./v2/mkdocs.yml'
+plugins:
+  - terraform-monorepo
 
-            plugins:
-              - monorepo
+```
 
-!!! info "Example submodule /v1/mkdocs.yml"
-            # In this case, we use the site_name to figure out how we should merge
-            # this with the root documentation. It should refer to a folder structure.
-            # The example below will merge documentation as following:
-            #
-            #   reference.md -> docs/versions/v1/reference.md -> http://localhost:8000/versions/v1/reference/
-            #   changelog.md -> docs/versions/v1/changelog.md -> http://localhost:8000/versions/v1/changelog/
-            #
-
-            site_name: versions/v1
-
-            nav:
-              - Reference: "reference.md"
-              - Changelog: "changelog.md"
-
-            nav:
-              - code-samples.md
-
-!!! info "Example submodule /v2/mkdocs.yml"
-
-            # It works the same as above, but with relative to the site_name we use here:
-            #
-            #   migrating.md -> docs/versions/v2/migrating.md -> http://localhost:8000/versions/v2/migrating/
-            #   reference.md -> docs/versions/v2/reference.md -> http://localhost:8000/versions/v2/reference/
-            #   changelog.md -> docs/versions/v2/changelog.md -> http://localhost:8000/versions/v2/changelog/
-
-            site_name: versions/v2
-
-            nav:
-              - Migrating to v2: "migrating.md"
-              - Reference: "reference.md"
-              - Changelog: "changelog.md"
-
-An example filetree when using the Mkdocs Monorepo plugin looks like this:
+An example filetree when using the Mkdocs Terraform Monorepo plugin looks like this:
 
 ```terminal
 $ tree .
-
+.
+├── aws
+│   ├── README.md
+│   └── s3
+│       └── private_bucket
+│           └── README.md
+├── azurerm
+│   ├── blob_storage
+│   │   └── container
+│   │       └── README.md
+│   └── README.md
 ├── docs
-│   ├── authentication.md
-│   └── index.md
-├── mkdocs.yml
-├── v1
-│   ├── docs
-│   │   ├── changelog.md
-│   │   └── reference.md
-│   └── mkdocs.yml
-└── v2
-    ├── docs
-    │   ├── changelog.md
-    │   ├── migrating.md
-    │   └── reference.md
-    └── mkdocs.yml
+│   └── index.md
+├── gcp
+│   └── README.md
+└── mkdocs.yml
 
-5 directories, 10 files
+8 directories, 7 files
+
 ```
 
 ## Supported Versions
