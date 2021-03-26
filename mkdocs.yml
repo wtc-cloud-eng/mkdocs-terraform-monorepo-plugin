@@ -9,7 +9,7 @@ nav:
 
 
 site_name: "mkdocs-terraform-monorepo-plugin (&beta;)"
-repo_url: https://github.com/wtc-cloud-eng/terraform-modules-example
+repo_url: https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin
 repo_name: 'wtc-cloud-eng/mkdocs-terraform-monorepo-plugin'
 site_description: |
   Docs for the mkdocs terraform monorepo plugin - a plugin to include terraform docs in a the navigation
