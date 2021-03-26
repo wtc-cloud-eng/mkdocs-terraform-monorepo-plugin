@@ -7,7 +7,6 @@
 
 > **Note: This plugin is in beta.** Whilst it is not expected to significantly change in functionality, it may not yet be fully compatible with other Mkdocs configuration and thus may break with some advanced configurations. Once these have been resolved and all bugs have been ironed out, we will move this to a stable release.
 
-
 🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://wtc-cloud-eng.github.io/mkdocs-terraform-monorepo-plugin/terraform-monorepo-example/) | 📕 [Docs](https://wtc-cloud-eng.github.io/mkdocs-terraform-monorepo-plugin/)
 
 
