@@ -9,7 +9,7 @@
 
 ✚ This plugin enables you to build multiple sets of documentation in a single Mkdocs. It is designed to address writing documentation for Terraform monorepos, particularly when used with [terraform-docs].
 
-🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://wtc-cloud-eng.github.io/mkdocs-monorepo-plugin/terraform-monorepo-example/) | 📕 [Repo](https://wtc-cloud-enggithub.com/mkdocs-terraform-monorepo-plugin/)
+🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://wtc-cloud-eng.github.io/mkdocs-terraform-monorepo-plugin/terraform-monorepo-example/) | 📕 [Repo](https://wtc-cloud-enggithub.com/mkdocs-terraform-monorepo-plugin/)
 
 > **Note:  This project was adapted from the Spotify [backstage monorepo] plugin.** It follows the same structure, test patterns, principles and release patterns.
 
