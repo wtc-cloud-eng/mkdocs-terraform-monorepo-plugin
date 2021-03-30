@@ -1,6 +1,6 @@
 flake8>=3.7.8
 mkdocs>=1.1.1
-mkdocs-monorepo-plugin==0.4.5  # breaking change to pre_page was added to 0.4.6
+mkdocs-monorepo-plugin==0.4.13  # breaking change to pre_page was added to 0.4.6
 mkdocs-material==7.0.6
 mkdocs-material-extensions==1.0.1
 markdown-include==0.6.0
