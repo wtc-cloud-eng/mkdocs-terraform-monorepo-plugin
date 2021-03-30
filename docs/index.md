@@ -1,15 +1,15 @@
 # wtc-cloud-eng/mkdocs-terraform-monorepo-plugin
 
-[![](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/workflows/Build%2C%20Test%20%26%20Deploy/badge.svg)](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/actions)
+[![build-status](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/workflows/Build%2C%20Test%20%26%20Deploy/badge.svg)](https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin/actions)
 [![PyPI](https://img.shields.io/pypi/v/mkdocs-terraform-monorepo-plugin)](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/)
-![](https://img.shields.io/badge/lifecycle-beta-509bf5.svg)
+![lifecycle-beta](https://img.shields.io/badge/lifecycle-beta-509bf5.svg)
 [![PyPI - License](https://img.shields.io/pypi/l/mkdocs-terraform-monorepo-plugin)](LICENSE.md)
 
 > **Note: This plugin is in beta.** Whilst it is not expected to significantly change in functionality, it may not yet be fully compatible with other Mkdocs configuration and thus may break with some advanced configurations. Once these have been resolved and all bugs have been ironed out, we will move this to a stable release.
 
 ✚ This plugin enables you to build multiple sets of documentation in a single Mkdocs. It is designed to address writing documentation for Terraform monorepos, particularly when used with [terraform-docs].
 
-🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://wtc-cloud-eng.github.io/mkdocs-terraform-monorepo-plugin/terraform-monorepo-example/) | 📕 [Repo](https://wtc-cloud-enggithub.com/mkdocs-terraform-monorepo-plugin/)
+🐍 [Python Package](https://pypi.org/project/mkdocs-terraform-monorepo-plugin/) | ✚ [Demo](https://wtc-cloud-eng.github.io/mkdocs-monorepo-plugin/terraform-monorepo-example/) | 📕 [Repo](https://wtc-cloud-enggithub.com/mkdocs-terraform-monorepo-plugin/)
 
 > **Note:  This project was adapted from the Spotify [backstage monorepo] plugin.** It follows the same structure, test patterns, principles and release patterns.
 
@@ -26,7 +26,7 @@
 It's easy to get started using [PyPI] and `pip` using Python:
 
 ```terminal
-$ pip install mkdocs-terraform-monorepo-plugin
+pip install mkdocs-terraform-monorepo-plugin
 ```
 
 ## Usage
@@ -37,9 +37,9 @@ Take a look at [our sample project](https://github.com/wtc-cloud-eng/mkdocs-terr
 - Create a subfolder, with a `mkdocs.yml` with a `site_name` and `nav`, as well as a `docs/` folder with an `index.md`
 - Back in in the root `mkdocs.yml`, use the `!tf_modules_root` syntax in your `nav` to link to to a folder containing terraform markdown documentation.
 
-### Example root /mkdocs.yml"
+### Example root /mkdocs.yml
 
-```
+```yaml
 site_name: terraform monorepo
 
 nav:
@@ -103,7 +103,7 @@ Check out our [CONTRIBUTING](./CONTRIBUTING.md) for more details.
 
 [mkdocs/mkdocs]: https://github.com/mkdocs/mkdocs
 [mkdocs-plugin-template]: https://github.com/byrnereese/mkdocs-plugin-template
-[pypi]: https://pypi.org
+[PyPi]: https://pypi.org
 [mkdocs]: https://www.mkdocs.org
 [backstage monorepo]: https://backstage.github.io/mkdocs-monorepo-plugin/
 [github codeowners]: https://help.github.com/en/articles/about-code-
