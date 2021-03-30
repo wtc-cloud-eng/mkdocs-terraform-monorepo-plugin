@@ -12,7 +12,7 @@ setuptools.setup(
         This is built and maintained by the engineering community at Wunderman Thompson Commerce.
         It was, however, inspired by and adapted from the Spotify backstage monorepo plugin.
     """,  # noqa: E501
-    keywords='mkdocs terraform monorepo plugin',
+    keywords='mkdocs terraform monorepo',
     url='https://github.com/wtc-cloud-eng/mkdocs-terraform-monorepo-plugin',
     author='Richard Wittrick',
     author_email='richard.wittrick@wundermanthompson.com',

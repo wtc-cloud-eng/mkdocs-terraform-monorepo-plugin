@@ -72,7 +72,6 @@ jobs:
           files: |
              setup.py
       - name: Display changed files
-        if: steps.changed_files.outputs.files_changed == 'true'
         run: |
           echo "Changed files: ${{ steps.changed_files.outputs.changed_files }}"
       - name: Set up Python ${{ matrix.python-version }}
