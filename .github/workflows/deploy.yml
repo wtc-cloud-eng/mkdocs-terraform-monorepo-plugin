@@ -70,20 +70,24 @@ jobs:
         id: changed_files
         with:
           files: |
-             setup.py   
+             setup.py
+      - name: Display changed files
+        if: steps.changed_files.outputs.files_changed == 'true'
+        run: |
+          echo "Changed files: ${{ steps.changed_files.outputs.changed_files }}"
       - name: Set up Python ${{ matrix.python-version }}
-        if: steps.changed_files.outputs.files_changed == 'true' 
+        if: steps.changed_files.outputs.files_changed == 'true'
         uses: actions/setup-python@master
         with:
           python-version: 3.7
       - name: Build Python distribution
-        if: steps.changed_files.outputs.files_changed == 'true' 
+        if: steps.changed_files.outputs.files_changed == 'true'
         run: |
           pip install wheel
           rm -rf dist
           python setup.py bdist_wheel sdist --formats gztar
       - name: Publish a Python distribution to PyPI
-        if: steps.changed_files.outputs.files_changed == 'true' 
+        if: steps.changed_files.outputs.files_changed == 'true'
         uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
         with:
           user: __token__
