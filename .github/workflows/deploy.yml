@@ -75,7 +75,7 @@ jobs:
           rm -rf dist
           python setup.py bdist_wheel sdist --formats gztar
       - name: Publish a Python distribution to PyPI
-        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        uses: pypa/gh-action-pypi-publish@717ba43cfbb0387f6ce311b169a825772f54d295
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_KEY }}
